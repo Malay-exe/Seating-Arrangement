@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convocation Event</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+            transition: opacity 2s ease; /* Added fade effect transition */
+        }
+
+        .fade-out {
+            opacity: 0; /* Set to 0 when the fade-out effect is triggered */
+        }
+
+        /* Container */
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+        }
+        #x{
+            text-align: left; 
+        }
+        /* Header Styling */
+        .header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2C3E50;
+        }
+
+        .header h2 {
+            font-size: 24px;
+            color: #3498db;
+            margin-top: 10px;
+        }
+
+        /* Image Section */
+        .image-section img {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        /* Credits Section */
+        .credits {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .credit h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2C3E50;
+        }
+
+        .credit p {
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 600px) {
+            .credits {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .credit {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+    <script>
+        // Set timeout for fade-out effect before transitioning to the second page
+        setTimeout(function() {
+            // Add fade-out class to trigger the fade effect
+            document.body.classList.add('fade-out');
+
+            // After 2 seconds (fade duration), redirect to the second page
+            setTimeout(function() {
+                window.location.href = "/index";  // Redirects to the second page
+            }, 2000); // Matches the fade duration
+        }, 4000); // Time before the fade-out effect starts (4 seconds)
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Atmiya University</h1>
+            <h2>Convocation January, 2025</h2>
+        </header>
+
+        <section class="image-section">
+            <img src="{{ url_for('static', filename='atmiya.jpg') }}" alt="Convocation Image">
+        </section>
+
+        <section class="credits">
+            <div id="x" class="credit">
+                <h3>Guided by:</h3>
+                <p>Dr. Yagnesh Shukla</p>
+                <p>Dr. Tushar Bhatt</p>
+                <p>Mr. Milan Gohel</p>
+            </div>
+            <div class="credit">
+                <h3>Developed by:</h3>
+                <p>Malay Gajipara</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

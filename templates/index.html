@@ -1,0 +1,276 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seating Arrangement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 40px;
+        }
+
+        label {
+            font-size: 1.2em;
+            color: #34495e;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.2em;
+            border: 2px solid #3498db;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus {
+            border-color: #2980b9;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.2em;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .result img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.5em; /* Increase font size */
+        }
+
+        th, td {
+            padding: 20px; /* Increase padding for larger cells */
+            border: 1px solid #ddd;
+            text-align: center;
+            font-size: 1.2em; /* Increase font size for better readability */
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        td {
+            background-color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        td:hover {
+            background-color: #f39c12;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Seating Arrangement</h1>
+
+    <form method="POST">
+        <label for="roll_number">Enter Roll Number:</label>
+        <input type="text" id="roll_number" name="roll_number" placeholder="e.g., 4" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if img_base64 %}
+        <div class="result">
+            <h2>Seating Arrangement (with Highlighted Seat)</h2>
+            <img src="data:image/png;base64,{{ img_base64 }}" alt="Seating Arrangement">
+        </div>
+    {% endif %}
+
+    <div class="footer">
+        <p>Powered by <a href="https://flask.palletsprojects.com/en/2.1.x/" target="_blank">Flask</a></p>
+    </div>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seating Arrangement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 40px;
+        }
+
+        label {
+            font-size: 1.2em;
+            color: #34495e;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.2em;
+            border: 2px solid #3498db;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus {
+            border-color: #2980b9;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.2em;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .result img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Seating Arrangement</h1>
+
+    <form method="POST">
+        <label for="roll_number">Enter Roll Number:</label>
+        <input type="text" id="roll_number" name="roll_number" placeholder="e.g., 4" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if img_base64 %}
+        <div class="result">
+            <h2>Seating Arrangement (with Highlighted Seat)</h2>
+            <img src="data:image/png;base64,{{ img_base64 }}" alt="Seating Arrangement">
+        </div>
+    {% endif %}
+
+    <div class="footer">
+        <p>Powered by <a href="https://flask.palletsprojects.com/en/2.1.x/" target="_blank">Flask</a></p>
+    </div>
+
+</body>
+</html>
